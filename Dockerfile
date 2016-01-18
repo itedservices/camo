@@ -11,5 +11,9 @@ RUN npm install
 ADD server.js /app/
 ADD mime-types.json /app/
 
-expose 8081
-CMD nodejs server.js
+ENV CAMO_HOSTNAME=camo.ited.co.nz
+ENV CAMO_LOGGING_ENABLED=debug 
+
+EXPOSE 8081
+
+CMD ["nodejs", "server.js"]
