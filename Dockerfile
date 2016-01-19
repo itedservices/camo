@@ -9,11 +9,12 @@ ADD package.json /app/
 RUN npm install
 
 ADD server.js /app/
+ADD boot.sh /app/
 ADD mime-types.json /app/
 
-ENV CAMO_HOSTNAME=camo.ited.co.nz
 ENV CAMO_LOGGING_ENABLED=debug 
 
 EXPOSE 8081
 
-CMD ["nodejs", "server.js"]
+CMD ["/app/boot.sh"]
+
